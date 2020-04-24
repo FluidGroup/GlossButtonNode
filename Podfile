@@ -9,3 +9,11 @@ target 'GlossButtonNode' do
   pod 'TextureSwiftSupport'
 
 end
+
+target 'Demo-GlossButtonNode' do
+  use_frameworks!
+
+  pod 'Texture/Core'
+  pod 'TextureSwiftSupport'
+  pod 'Reveal-SDK'
+end

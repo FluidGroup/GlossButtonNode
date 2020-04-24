@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		238FE3575A470B642DEE45ED /* Pods_Demo_GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE291715B9832545FBCE1E2B /* Pods_Demo_GlossButtonNode.framework */; };
 		4B6F6F4B2452A1FA00B6CC3A /* GlossButtonNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B6F6F5B2452A32C00B6CC3A /* GlossButtonStrokedSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F512452A32B00B6CC3A /* GlossButtonStrokedSurfaceNode.swift */; };
 		4B6F6F5C2452A32C00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F522452A32B00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift */; };
@@ -18,6 +19,12 @@
 		4B6F6F622452A32C00B6CC3A /* GlossButtonHighlightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F582452A32C00B6CC3A /* GlossButtonHighlightAnimation.swift */; };
 		4B6F6F632452A32C00B6CC3A /* GlossButtonBodyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F592452A32C00B6CC3A /* GlossButtonBodyLayout.swift */; };
 		4B6F6F642452A32C00B6CC3A /* GlossButtonBlurrySurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F5A2452A32C00B6CC3A /* GlossButtonBlurrySurfaceNode.swift */; };
+		4B6F6F6C2452AEC300B6CC3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F6B2452AEC300B6CC3A /* AppDelegate.swift */; };
+		4B6F6F6E2452AEC300B6CC3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F6D2452AEC300B6CC3A /* SceneDelegate.swift */; };
+		4B6F6F702452AEC300B6CC3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F6F2452AEC300B6CC3A /* ViewController.swift */; };
+		4B6F6F732452AEC300B6CC3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B6F6F712452AEC300B6CC3A /* Main.storyboard */; };
+		4B6F6F752452AEC400B6CC3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6F6F742452AEC400B6CC3A /* Assets.xcassets */; };
+		4B6F6F782452AEC400B6CC3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B6F6F762452AEC400B6CC3A /* LaunchScreen.storyboard */; };
 		A45A95BF49C14C94615C0B22 /* Pods_GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B01BB9C163C1FE2E8B8BA9 /* Pods_GlossButtonNode.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +42,18 @@
 		4B6F6F582452A32C00B6CC3A /* GlossButtonHighlightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlossButtonHighlightAnimation.swift; sourceTree = "<group>"; };
 		4B6F6F592452A32C00B6CC3A /* GlossButtonBodyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlossButtonBodyLayout.swift; sourceTree = "<group>"; };
 		4B6F6F5A2452A32C00B6CC3A /* GlossButtonBlurrySurfaceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlossButtonBlurrySurfaceNode.swift; sourceTree = "<group>"; };
+		4B6F6F692452AEC300B6CC3A /* Demo-GlossButtonNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-GlossButtonNode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6F6F6B2452AEC300B6CC3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B6F6F6D2452AEC300B6CC3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4B6F6F6F2452AEC300B6CC3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B6F6F722452AEC300B6CC3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B6F6F742452AEC400B6CC3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B6F6F772452AEC400B6CC3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B6F6F792452AEC400B6CC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898A05F41439310107962F6D /* Pods-GlossButtonNode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlossButtonNode.release.xcconfig"; path = "Target Support Files/Pods-GlossButtonNode/Pods-GlossButtonNode.release.xcconfig"; sourceTree = "<group>"; };
+		BE291715B9832545FBCE1E2B /* Pods_Demo_GlossButtonNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_GlossButtonNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87E693B197813C3421401C5 /* Pods-Demo-GlossButtonNode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-GlossButtonNode.release.xcconfig"; path = "Target Support Files/Pods-Demo-GlossButtonNode/Pods-Demo-GlossButtonNode.release.xcconfig"; sourceTree = "<group>"; };
+		DCE336ED8C8F2148DCFA530E /* Pods-Demo-GlossButtonNode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-GlossButtonNode.debug.xcconfig"; path = "Target Support Files/Pods-Demo-GlossButtonNode/Pods-Demo-GlossButtonNode.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B01BB9C163C1FE2E8B8BA9 /* Pods_GlossButtonNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlossButtonNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D66C1CF21A4C112F74FD77 /* Pods-GlossButtonNode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlossButtonNode.debug.xcconfig"; path = "Target Support Files/Pods-GlossButtonNode/Pods-GlossButtonNode.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +67,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B6F6F662452AEC300B6CC3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				238FE3575A470B642DEE45ED /* Pods_Demo_GlossButtonNode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -56,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4B6F6F482452A1FA00B6CC3A /* GlossButtonNode */,
+				4B6F6F6A2452AEC300B6CC3A /* Demo-GlossButtonNode */,
 				4B6F6F472452A1FA00B6CC3A /* Products */,
 				8BE6C91463AA30AD4B282C45 /* Pods */,
 				813110C4657D241717B7020E /* Frameworks */,
@@ -66,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */,
+				4B6F6F692452AEC300B6CC3A /* Demo-GlossButtonNode.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,10 +117,25 @@
 			path = GlossButtonNode;
 			sourceTree = "<group>";
 		};
+		4B6F6F6A2452AEC300B6CC3A /* Demo-GlossButtonNode */ = {
+			isa = PBXGroup;
+			children = (
+				4B6F6F6B2452AEC300B6CC3A /* AppDelegate.swift */,
+				4B6F6F6D2452AEC300B6CC3A /* SceneDelegate.swift */,
+				4B6F6F6F2452AEC300B6CC3A /* ViewController.swift */,
+				4B6F6F712452AEC300B6CC3A /* Main.storyboard */,
+				4B6F6F742452AEC400B6CC3A /* Assets.xcassets */,
+				4B6F6F762452AEC400B6CC3A /* LaunchScreen.storyboard */,
+				4B6F6F792452AEC400B6CC3A /* Info.plist */,
+			);
+			path = "Demo-GlossButtonNode";
+			sourceTree = "<group>";
+		};
 		813110C4657D241717B7020E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F8B01BB9C163C1FE2E8B8BA9 /* Pods_GlossButtonNode.framework */,
+				BE291715B9832545FBCE1E2B /* Pods_Demo_GlossButtonNode.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,8 +145,9 @@
 			children = (
 				F9D66C1CF21A4C112F74FD77 /* Pods-GlossButtonNode.debug.xcconfig */,
 				898A05F41439310107962F6D /* Pods-GlossButtonNode.release.xcconfig */,
+				DCE336ED8C8F2148DCFA530E /* Pods-Demo-GlossButtonNode.debug.xcconfig */,
+				D87E693B197813C3421401C5 /* Pods-Demo-GlossButtonNode.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,18 +184,41 @@
 			productReference = 4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		4B6F6F682452AEC300B6CC3A /* Demo-GlossButtonNode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6F6F7C2452AEC400B6CC3A /* Build configuration list for PBXNativeTarget "Demo-GlossButtonNode" */;
+			buildPhases = (
+				7A067138B81F283C2394F770 /* [CP] Check Pods Manifest.lock */,
+				4B6F6F652452AEC300B6CC3A /* Sources */,
+				4B6F6F662452AEC300B6CC3A /* Frameworks */,
+				4B6F6F672452AEC300B6CC3A /* Resources */,
+				DC9153D67C5C6C9F226B17D6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Demo-GlossButtonNode";
+			productName = "Demo-GlossButtonNode";
+			productReference = 4B6F6F692452AEC300B6CC3A /* Demo-GlossButtonNode.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4B6F6F3D2452A1FA00B6CC3A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = TextureCommunity;
 				TargetAttributes = {
 					4B6F6F452452A1FA00B6CC3A = {
 						CreatedOnToolsVersion = 11.4.1;
 						LastSwiftMigration = 1140;
+					};
+					4B6F6F682452AEC300B6CC3A = {
+						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
@@ -169,6 +236,7 @@
 			projectRoot = "";
 			targets = (
 				4B6F6F452452A1FA00B6CC3A /* GlossButtonNode */,
+				4B6F6F682452AEC300B6CC3A /* Demo-GlossButtonNode */,
 			);
 		};
 /* End PBXProject section */
@@ -178,6 +246,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6F6F672452AEC300B6CC3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6F6F782452AEC400B6CC3A /* LaunchScreen.storyboard in Resources */,
+				4B6F6F752452AEC400B6CC3A /* Assets.xcassets in Resources */,
+				4B6F6F732452AEC300B6CC3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +284,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A067138B81F283C2394F770 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo-GlossButtonNode-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC9153D67C5C6C9F226B17D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo-GlossButtonNode/Pods-Demo-GlossButtonNode-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo-GlossButtonNode/Pods-Demo-GlossButtonNode-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo-GlossButtonNode/Pods-Demo-GlossButtonNode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -226,7 +343,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B6F6F652452AEC300B6CC3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6F6F702452AEC300B6CC3A /* ViewController.swift in Sources */,
+				4B6F6F6C2452AEC300B6CC3A /* AppDelegate.swift in Sources */,
+				4B6F6F6E2452AEC300B6CC3A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B6F6F712452AEC300B6CC3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B6F6F722452AEC300B6CC3A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B6F6F762452AEC400B6CC3A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B6F6F772452AEC400B6CC3A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4B6F6F4C2452A1FA00B6CC3A /* Debug */ = {
@@ -400,6 +546,42 @@
 			};
 			name = Release;
 		};
+		4B6F6F7A2452AEC400B6CC3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCE336ED8C8F2148DCFA530E /* Pods-Demo-GlossButtonNode.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Demo-GlossButtonNode/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.texturecommunity.Demo-GlossButtonNode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B6F6F7B2452AEC400B6CC3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87E693B197813C3421401C5 /* Pods-Demo-GlossButtonNode.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Demo-GlossButtonNode/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.texturecommunity.Demo-GlossButtonNode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,6 +599,15 @@
 			buildConfigurations = (
 				4B6F6F4F2452A1FA00B6CC3A /* Debug */,
 				4B6F6F502452A1FA00B6CC3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6F6F7C2452AEC400B6CC3A /* Build configuration list for PBXNativeTarget "Demo-GlossButtonNode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6F6F7A2452AEC400B6CC3A /* Debug */,
+				4B6F6F7B2452AEC400B6CC3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

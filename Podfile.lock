@@ -1,21 +1,25 @@
 PODS:
+  - Reveal-SDK (24)
   - Texture/Core (2.8.1)
   - TextureSwiftSupport (1.5.0):
     - Texture/Core (~> 2.8)
 
 DEPENDENCIES:
+  - Reveal-SDK
   - Texture/Core
   - TextureSwiftSupport
 
 SPEC REPOS:
   trunk:
+    - Reveal-SDK
     - Texture
     - TextureSwiftSupport
 
 SPEC CHECKSUMS:
+  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
   TextureSwiftSupport: ff4052c7ba9c78b10849b06cee09a0ee33b00997
 
-PODFILE CHECKSUM: 114ec8cb8738416608336399f321c4e6494c6952
+PODFILE CHECKSUM: 6d79d059d9e35d69b00178759dfd1d5dade347d9
 
 COCOAPODS: 1.8.4
