@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		238FE3575A470B642DEE45ED /* Pods_Demo_GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE291715B9832545FBCE1E2B /* Pods_Demo_GlossButtonNode.framework */; };
+		4B2276172454A8F900F39A16 /* VerticalScrollWrapperNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2276162454A8F900F39A16 /* VerticalScrollWrapperNode.swift */; };
+		4B22761C2454AC5700F39A16 /* GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */; };
+		4B22761D2454AC5700F39A16 /* GlossButtonNode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B6F6F4B2452A1FA00B6CC3A /* GlossButtonNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B6F6F5B2452A32C00B6CC3A /* GlossButtonStrokedSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F512452A32B00B6CC3A /* GlossButtonStrokedSurfaceNode.swift */; };
 		4B6F6F5C2452A32C00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F522452A32B00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift */; };
@@ -28,7 +31,32 @@
 		A45A95BF49C14C94615C0B22 /* Pods_GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B01BB9C163C1FE2E8B8BA9 /* Pods_GlossButtonNode.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4B22761E2454AC5700F39A16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B6F6F3D2452A1FA00B6CC3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B6F6F452452A1FA00B6CC3A;
+			remoteInfo = GlossButtonNode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B2276202454AC5700F39A16 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B22761D2454AC5700F39A16 /* GlossButtonNode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4B2276162454A8F900F39A16 /* VerticalScrollWrapperNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollWrapperNode.swift; sourceTree = "<group>"; };
 		4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GlossButtonNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlossButtonNode.h; sourceTree = "<group>"; };
 		4B6F6F4A2452A1FA00B6CC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				238FE3575A470B642DEE45ED /* Pods_Demo_GlossButtonNode.framework in Frameworks */,
+				4B22761C2454AC5700F39A16 /* GlossButtonNode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +149,7 @@
 		4B6F6F6A2452AEC300B6CC3A /* Demo-GlossButtonNode */ = {
 			isa = PBXGroup;
 			children = (
+				4B2276162454A8F900F39A16 /* VerticalScrollWrapperNode.swift */,
 				4B6F6F6B2452AEC300B6CC3A /* AppDelegate.swift */,
 				4B6F6F6D2452AEC300B6CC3A /* SceneDelegate.swift */,
 				4B6F6F6F2452AEC300B6CC3A /* ViewController.swift */,
@@ -193,10 +223,12 @@
 				4B6F6F662452AEC300B6CC3A /* Frameworks */,
 				4B6F6F672452AEC300B6CC3A /* Resources */,
 				DC9153D67C5C6C9F226B17D6 /* [CP] Embed Pods Frameworks */,
+				4B2276202454AC5700F39A16 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B22761F2454AC5700F39A16 /* PBXTargetDependency */,
 			);
 			name = "Demo-GlossButtonNode";
 			productName = "Demo-GlossButtonNode";
@@ -349,11 +381,20 @@
 			files = (
 				4B6F6F702452AEC300B6CC3A /* ViewController.swift in Sources */,
 				4B6F6F6C2452AEC300B6CC3A /* AppDelegate.swift in Sources */,
+				4B2276172454A8F900F39A16 /* VerticalScrollWrapperNode.swift in Sources */,
 				4B6F6F6E2452AEC300B6CC3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B22761F2454AC5700F39A16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B6F6F452452A1FA00B6CC3A /* GlossButtonNode */;
+			targetProxy = 4B22761E2454AC5700F39A16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B6F6F712452AEC300B6CC3A /* Main.storyboard */ = {

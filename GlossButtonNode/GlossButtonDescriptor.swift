@@ -48,7 +48,7 @@ public struct GlossButtonDescriptor {
     surfaceStyle: GlossButtonSurfaceStyle,
     bodyOpacity: CGFloat = 1,
     insets: UIEdgeInsets? = nil,
-    indicatorViewStyle: UIActivityIndicatorView.Style = .white
+    indicatorViewStyle: UIActivityIndicatorView.Style = UIActivityIndicatorView.Style.medium
   ) {
     
     self.title = title
@@ -68,40 +68,35 @@ public struct GlossButtonDescriptor {
 // MARK: - Modifying Method Chain
 extension GlossButtonDescriptor {
   
-  public func title(_ title: NSAttributedString?) -> GlossButtonDescriptor {
+  @inline(__always)
+  private func _chain(_ modify: (inout Self) -> Void) -> Self {
     var m = self
-    m.title = title
+    modify(&m)
     return m
   }
   
-  public func image(_ image: UIImage?) -> GlossButtonDescriptor {
-    var m = self
-    m.image = image
-    return m
+  public func title(_ title: NSAttributedString?) -> Self {
+    _chain { $0.title = title }
   }
   
-  public func insets(_ insets: UIEdgeInsets) -> GlossButtonDescriptor {
-    var m = self
-    m.insets = insets
-    return m
+  public func image(_ image: UIImage?) -> Self {
+    _chain { $0.image = image }
   }
   
-  public func boundPadding(_ boundPadding: UIEdgeInsets) -> GlossButtonDescriptor {
-    var m = self
-    m.boundPadding = boundPadding
-    return m
+  public func insets(_ insets: UIEdgeInsets) -> Self {
+    _chain { $0.insets = insets }
   }
   
-  public func bodyOpacity(_ opacity: CGFloat) -> GlossButtonDescriptor {
-    var m = self
-    m.bodyOpacity = bodyOpacity
-    return m
+  public func boundPadding(_ boundPadding: UIEdgeInsets) -> Self {
+    _chain { $0.boundPadding = boundPadding }
+  }
+  
+  public func bodyOpacity(_ opacity: CGFloat) -> Self {
+    _chain { $0.bodyOpacity = opacity }
   }
   
   public func surfaceStyle(_ sufaceStyle: GlossButtonSurfaceStyle) -> Self {
-    var m = self
-    m.surfaceStyle = sufaceStyle
-    return m
+    _chain { $0.surfaceStyle = sufaceStyle }
   }
   
 }

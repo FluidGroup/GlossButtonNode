@@ -8,13 +8,130 @@
 
 import UIKit
 
+import AsyncDisplayKit
+import TextureSwiftSupport
+import TextureBridging
+import GlossButtonNode
+import TypedTextAttributes
+
 class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    let nodeView = NodeView(node: BodyNode())
+    
+    view.addSubview(nodeView)
+    
+    nodeView.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      nodeView.topAnchor.constraint(equalTo: view.topAnchor),
+      nodeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      nodeView.rightAnchor.constraint(equalTo: view.rightAnchor),
+      nodeView.leftAnchor.constraint(equalTo: view.leftAnchor),
+    ])
+    
   }
-
 
 }
 
+extension ViewController {
+  
+  private enum Descriptors {
+    
+    static let icon = UIImage(named: "rectangle")!
+    
+    static let items: [GlossButtonDescriptor] = [
+      GlossButtonDescriptor(
+        title: "Do!".styled {
+          $0.font(.systemFont(ofSize: 18))
+            .foregroundColor(.white)
+        },
+        image: icon,
+        bodyStyle: .init(layout: .horizontal()),
+        surfaceStyle: .fill(
+          .init(
+            cornerRound: .radius(all: 16),
+            backgroundColor: .gradient(
+              colorAndLocations: [
+                (0, #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1)),
+                (1, #colorLiteral(red: 0.9841937423, green: 0.3711297512, blue: 0.2100374103, alpha: 1)),
+              ],
+              startPoint: .init(x: 0, y: 0),
+              endPoint: .init(x: 1, y: 1)
+            ),
+            dropShadow: .none
+          )
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 8, left: 8, bottom: 8, right: 8)
+      )
+    ]
+    
+  }
+  
+  private final class BodyNode: ASDisplayNode {
+    
+    private let scrollNode: ASDisplayNode
+          
+    override init() {
+      
+      let buttons: [GlossButtonNode] = Descriptors.items.map {
+        let node = GlossButtonNode()
+        node.setDescriptor($0, for: .normal)
+        return node
+      }
+      
+      self.scrollNode = VerticalScrollWrapperNode {
+        Self.makeList(buttonNodes: buttons)
+      }
+      
+      super.init()
+      
+      automaticallyManagesSubnodes = true
+                
+    }
+    
+    override func didLoad() {
+      super.didLoad()        
+    }
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+      
+      LayoutSpec {
+        scrollNode
+      }
+    }
+    
+    private static func makeList(buttonNodes: [GlossButtonNode]) -> FunctionalDisplayNode {
+      
+      let nodes = buttonNodes.map { makeCell(buttonNode: $0) }
+      
+      return FunctionalDisplayNode { _, _ in
+        LayoutSpec {
+          VStackLayout {
+            nodes
+          }
+        }
+      }
+    }
+    
+    private static func makeCell(buttonNode: GlossButtonNode) -> FunctionalDisplayNode {
+                  
+      return FunctionalDisplayNode { _, _ in
+        LayoutSpec {
+          HStackLayout(justifyContent: .center) {
+            VStackLayout(justifyContent: .center) {
+              buttonNode
+            }
+          }
+          .padding(.horizontal, 20)
+          .padding(.vertical, 20)
+        }
+      }
+    }
+    
+  }
+  
+}
