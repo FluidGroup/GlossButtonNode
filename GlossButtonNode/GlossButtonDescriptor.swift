@@ -140,6 +140,11 @@ public struct GlossButtonTruncateStyle {
 public enum GlossButtonSurfaceStyle {
   
   /// workaround
+  public static var bodyOnly: GlossButtonSurfaceStyle {
+    return .stroke(.init(cornerRound: nil, strokeColor: .clear, borderWidth: 0))
+  }
+  
+  /// workaround
   public static var translucentHighlight: GlossButtonSurfaceStyle {
     return .stroke(.init(cornerRound: nil, strokeColor: .clear, borderWidth: 0))
   }

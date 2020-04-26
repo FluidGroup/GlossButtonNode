@@ -105,6 +105,17 @@ public struct GlossButtonFilledStyle {
     public let applier: (CALayer) -> Void
     public let isModern: Bool
     
+    public init(color: UIColor, offset: CGSize, radius: CGFloat, opacity: CGFloat, isModern: Bool) {
+      
+      self.init(applier: { (layer) in
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowRadius = radius
+        layer.shadowOpacity = Float(opacity)
+      }, isModern: isModern)
+      
+    }
+    
     public init(applier: @escaping (CALayer) -> Void, isModern: Bool) {
       self.applier = applier
       self.isModern = isModern
