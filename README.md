@@ -22,6 +22,42 @@ GlossButtonNode's functions are:
 
 These things would be helpful in the app that has a modern UI design.
 
+## First looks
+
+```swift
+
+let buttonNode = GlossButtonNode()
+
+let descriptor = GlossButtonDescriptor(
+  title: ...,
+  image: ...,
+  bodyStyle: .init(layout: .horizontal()),
+  surfaceStyle: .fill(
+    .init(
+      cornerRound: .circle,
+      backgroundColor: .gradient(
+        colorAndLocations: [
+          ...,
+          ...,
+        ],
+        startPoint: .init(x: 0, y: 0),
+        endPoint: .init(x: 1, y: 1)
+      ),
+      dropShadow: ...
+    )
+  )
+)
+
+buttonNode.setDescriptor(descriptor, for: .normal)
+
+buttonNode.onTap = {
+  ...
+}
+
+// or use addAction() as a normal approach.
+
+```
+
 ## Structure
 
 - Button
