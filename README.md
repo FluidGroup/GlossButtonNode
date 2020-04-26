@@ -58,6 +58,30 @@ buttonNode.onTap = {
 
 ```
 
+Using this like API inline in production would be a bit verbosity.<br>
+**This API is designed for fine-grained tuning.**
+
+If your product has UI design system, you can define factory functions for the descriptor.
+
+For example, like followings.
+
+```swift
+extension GlossButtonDescriptor {
+  static func primary(tintColor: UIColor) -> Self {
+    ..
+  }
+  
+  static func secondary(tintColor: UIColor) -> Self {
+    ..
+  }
+}
+```
+
+```swift
+let buttonNode = GlossButtonNode()
+buttonNode.setDescriptor(.primary(tintColor: myColor), for: .normal)
+```
+
 ## Structure
 
 - Button
