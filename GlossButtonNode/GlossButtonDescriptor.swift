@@ -48,7 +48,7 @@ public struct GlossButtonDescriptor {
     surfaceStyle: GlossButtonSurfaceStyle,
     bodyOpacity: CGFloat = 1,
     insets: UIEdgeInsets? = nil,
-    indicatorViewStyle: UIActivityIndicatorView.Style = UIActivityIndicatorView.Style.medium
+    indicatorViewStyle: UIActivityIndicatorView.Style = .white
   ) {
     
     self.title = title
