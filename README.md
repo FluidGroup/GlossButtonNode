@@ -93,16 +93,54 @@ buttonNode.setDescriptor(.primary(tintColor: myColor), for: .normal)
     
 ## Body
 
+Body has title and image node.
+
+The layout of body and highlighted animation are constructed by `GlossButtonBodyStyle`.
+
+Technically, 
+`GlossButtonBodyLayout` constructs body layout.
+`GlossButtonHighlightAnimation<T>` animates highlighted state.
+
+```swift
+GlossButtonBodyStyle(
+  layout: .vertical(), // or .horizontal()
+  highlightAnimation: .basic()
+)
+```
+
+*Body layout customization*
+
+`GlossButtonBodyLayout` is a wrapper object of closure that returns ASLayoutSpec contains title and image node.<br>
+This means `.vertical()` and `.horizontal()` are factory functions.
+
+Therefore, you can define any layout with writing ASLayoutSpec if you need to get another layout.
+
+About highlight animation, it uses the same approach.
+You can see the detail of that from `GlossButtonHighlightAnimation`
+
 ## Surface
 
-Filled
+Surface node will be displayed behind Body node with padding.
 
-Stroked
+Mainly, GlossButtonNode supports these 2 types of surface:
 
-## Animations
+**Filled**
 
+Configurations are in `GlossButtonFilledStyle`
+
+**Stroked**
+
+Configurations are in `GlossButtonStrokedStyle`
 
 ## Installation
+
+Currently, only supports CocoaPods
+
+In your Podfile
+
+```
+pod 'GlossButtonNode'
+```
 
 ## LICENSE
 
