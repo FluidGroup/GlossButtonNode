@@ -93,6 +93,31 @@ extension ViewController {
         bodyOpacity: 1,
         insets: .init(top: 16, left: 16, bottom: 16, right: 16)
       ),
+
+      GlossButtonDescriptor(
+        title: "Confirm".styled {
+          $0.font(.boldSystemFont(ofSize: 18))
+            .foregroundColor(.white)
+        },
+        image: icon,
+        bodyStyle: .init(layout: .horizontal(imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 2))),
+        surfaceStyle: .fill(
+          .init(
+            cornerRound: .radius(topRight: 20, topLeft: 20, bottomRight: 10, bottomLeft: 10),
+            backgroundColor: .gradient(
+              colorAndLocations: [
+                (0, #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1)),
+                (1, #colorLiteral(red: 0.9841937423, green: 0.3711297512, blue: 0.2100374103, alpha: 1)),
+              ],
+              startPoint: .init(x: 0, y: 0),
+              endPoint: .init(x: 1, y: 1)
+            ),
+            dropShadow: .none
+          )
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 16, left: 16, bottom: 16, right: 16)
+      ),
       
       GlossButtonDescriptor(
         title: "Confirm".styled {
@@ -184,7 +209,7 @@ extension ViewController {
       }
       
       self.scrollNode = VerticalScrollWrapperNode {
-        Self.makeList(buttonNodes: buttons)
+        Self.makeList(buttonNodes: buttons.map { Self.makeCell(buttonNode: $0) } + CollectionOfOne(Self.makeToggleCell()))
       }
       
       super.init()
@@ -204,14 +229,12 @@ extension ViewController {
       }
     }
     
-    private static func makeList(buttonNodes: [GlossButtonNode]) -> FunctionalDisplayNode {
-      
-      let nodes = buttonNodes.map { makeCell(buttonNode: $0) }
-      
+    private static func makeList(buttonNodes: [ASDisplayNode]) -> FunctionalDisplayNode {
+
       return FunctionalDisplayNode { _, _ in
         LayoutSpec {
           VStackLayout {
-            nodes
+            buttonNodes
           }
         }
       }
@@ -230,6 +253,94 @@ extension ViewController {
           .padding(.vertical, 20)
         }
       }
+    }
+
+    private static func makeToggleCell() -> FunctionalDisplayNode {
+
+      let button = GlossButtonNode()
+
+      let base = GlossButtonDescriptor(
+        title: nil,
+        image: nil,
+        bodyStyle: .init(layout: .horizontal(imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 2))),
+        surfaceStyle: .fill(
+          .init(
+            cornerRound: .circle,
+            backgroundColor: .gradient(
+              colorAndLocations: [
+                (0, #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1)),
+                (1, #colorLiteral(red: 0.9841937423, green: 0.3711297512, blue: 0.2100374103, alpha: 1)),
+              ],
+              startPoint: .init(x: 0, y: 0),
+              endPoint: .init(x: 1, y: 1)
+            ),
+            dropShadow: .none
+          )
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 16, left: 16, bottom: 16, right: 16)
+      )
+
+      let on = GlossButtonDescriptor(
+        title: "A".styled {
+          $0.font(.boldSystemFont(ofSize: 18))
+            .foregroundColor(#colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1))
+        },
+        image: nil,
+        bodyStyle: .init(layout: .horizontal(imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 2))),
+        surfaceStyle: .stroke(
+          .init(
+            cornerRound: .radius(16),
+            strokeColor: #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1),
+            borderWidth: 2,
+            highlightAnimation: .basic
+          )
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 16, left: 16, bottom: 16, right: 16)
+      )
+
+      let off = GlossButtonDescriptor(
+        title: "BBB".styled {
+          $0.font(.boldSystemFont(ofSize: 18))
+            .foregroundColor(.white)
+        },
+        image: nil,
+        bodyStyle: .init(layout: .horizontal(imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 2))),
+        surfaceStyle: .fill(
+          .init(
+            cornerRound: .circle,
+            backgroundColor: .gradient(
+              colorAndLocations: [
+                (0, #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1)),
+                (1, #colorLiteral(red: 0.9841937423, green: 0.3711297512, blue: 0.2100374103, alpha: 1)),
+              ],
+              startPoint: .init(x: 0, y: 0),
+              endPoint: .init(x: 1, y: 1)
+            ),
+            dropShadow: .none
+          )
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 16, left: 16, bottom: 16, right: 16)
+      )
+
+      button.setDescriptor(off, for: .normal)
+
+      var flag = false
+
+      button.onTap = { [weak button] in
+
+        flag.toggle()
+        if flag {
+          button?.setDescriptor(on, for: .normal, animated: true)
+        } else {
+          button?.setDescriptor(off, for: .normal, animated: true)
+        }
+
+      }
+
+      return makeCell(buttonNode: button)
     }
     
   }

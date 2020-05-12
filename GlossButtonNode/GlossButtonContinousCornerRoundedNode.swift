@@ -26,49 +26,58 @@ import TextureSwiftSupport
 
 /// To use continuous curve on CALayer only iOS13
 final class GlossButtonContinousCornerRoundedNode: ASDisplayNode {
-  
-  private var layerBackingNode: ShapeRenderingNode = .init()
-  
+
+  private let passBasedMaskNode: ShapeRenderingNode
+  private let layerBasedMaskNode: ASDisplayNode
+
   override init() {
+
+    self.layerBasedMaskNode = .init(layerBlock: { CALayer() })
+    self.passBasedMaskNode = .init()
+
     super.init()
     automaticallyManagesSubnodes = true
   }
-  
+
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    LayoutSpec {
-      WrapperLayout { layerBackingNode }
-    }
+    ASWrapperLayoutSpec(layoutElements: [
+      passBasedMaskNode,
+      layerBasedMaskNode
+      ]
+    )
   }
-  
+
   override func layout() {
     super.layout()
     _updateCornerCurve()
   }
-  
+
   func setPath(_ path: UIBezierPath) {
-    layerBackingNode.layer.cornerRadius = 0.0
-    layerBackingNode.shapePath = path
+    passBasedMaskNode.alpha = 1
+    layerBasedMaskNode.alpha = 0
+    passBasedMaskNode.shapePath = path
   }
-  
+
   @available(iOS 13, *)
   func setRadius(_ radius: CGFloat) {
     ASPerformBlockOnMainThread {
-      self.layerBackingNode.shapePath = nil
-      self.layerBackingNode.backgroundColor = .black
-      self.layerBackingNode.layer.cornerRadius = radius
+      self.layerBasedMaskNode.alpha = 1
+      self.passBasedMaskNode.alpha = 0
+      self.layerBasedMaskNode.backgroundColor = .black
+      self.layerBasedMaskNode.layer.cornerRadius = radius
       self._updateCornerCurve()
     }
   }
-  
-  // TODO: Pathの場合はどうするか
+
   private func _updateCornerCurve() {
     if #available(*, iOS 13) {
-      let _bounds = bounds
-      if _bounds.width == _bounds.height {
-        layerBackingNode.layer.cornerCurve = .circular
+
+      if bounds.width == bounds.height {
+        layerBasedMaskNode.layer.cornerCurve = .circular
       } else {
-        layerBackingNode.layer.cornerCurve = .continuous
+        layerBasedMaskNode.layer.cornerCurve = .continuous
       }
+
     }
   }
 }
