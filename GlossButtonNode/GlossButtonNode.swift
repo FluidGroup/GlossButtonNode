@@ -174,21 +174,19 @@ public final class GlossButtonNode : ASControlNode {
     for state: ControlState,
     animated: Bool = false
   ) {
-    
-    if animated {
-      let snapshot = self.view.snapshotView(afterScreenUpdates: false) ?? UIView()
-      view.addSubview(snapshot)
-      UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: {
-        
-        snapshot.alpha = 0
 
-      }, completion: { _ in
-        snapshot.removeFromSuperview()
-      })
-    }
-    
     descriptorStorage[state.rawValue] = descriptor
-    _synchronized_updateThatFitsState()
+    if animated {
+
+      let animator = UIViewPropertyAnimator.init(duration: 0.6, dampingRatio: 1) {
+        self._synchronized_updateThatFitsState()
+      }
+
+      animator.startAnimation()
+    } else {
+      _synchronized_updateThatFitsState()
+    }
+
   }
 
   public override func didLoad() {
@@ -198,7 +196,11 @@ public final class GlossButtonNode : ASControlNode {
     indicatorNode.backgroundColor = .clear
     indicatorNode.alpha = 0
   }
-  
+
+//  public override func animateLayoutTransition(_ context: ASContextTransitioning) {
+//
+//  }
+
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     
     guard let targetDescriptor = currentDescriptor else {
@@ -245,22 +247,22 @@ public final class GlossButtonNode : ASControlNode {
     
     let normalDescriptor = findDescriptor([.normal])
     
-    let targetDescriptor: GlossButtonDescriptor?
-    
-    switch (isSelected, isEnabled) {
-    case (true, true):
-      targetDescriptor = findDescriptor([.selected]) ?? normalDescriptor
-    case (true, false):
-      targetDescriptor = findDescriptor([.selected, .disabled]) ?? findDescriptor([.disabled]) ?? normalDescriptor
-    case (false, false):
-      targetDescriptor = findDescriptor([.disabled]) ?? {
-        var d = normalDescriptor
-        d?.bodyOpacity = 0.7
-        return d
-        }()
-    case (false, true):
-      targetDescriptor = normalDescriptor
-    }
+    let targetDescriptor: GlossButtonDescriptor? = {
+      switch (isSelected, isEnabled) {
+      case (true, true):
+        return findDescriptor([.selected]) ?? normalDescriptor
+      case (true, false):
+        return findDescriptor([.selected, .disabled]) ?? findDescriptor([.disabled]) ?? normalDescriptor
+      case (false, false):
+        return findDescriptor([.disabled]) ?? {
+          var d = normalDescriptor
+          d?.bodyOpacity = 0.7
+          return d
+          }()
+      case (false, true):
+        return normalDescriptor
+      }
+    }()
     
     guard let d = targetDescriptor else {
       return
@@ -320,8 +322,10 @@ public final class GlossButtonNode : ASControlNode {
     
     setNeedsLayout()
     setNeedsDisplay()
-    layoutIfNeeded()
-    
+
+    let rootNode = supernode ?? self
+    rootNode.layoutIfNeeded()
+
   }
   
   private func prepareLoadingIndicatorIfNeeded() {
