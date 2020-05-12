@@ -103,7 +103,7 @@ public final class GlossButtonNode : ASControlNode {
   public override var isSelected: Bool {
     didSet {
       if oldValue != isSelected {
-        updateThatFitsState()
+        _synchronized_updateThatFitsState()
       }
     }
   }
@@ -112,7 +112,7 @@ public final class GlossButtonNode : ASControlNode {
     didSet {
       if oldValue != isEnabled {
         isUserInteractionEnabled = isEnabled
-        updateThatFitsState()
+        _synchronized_updateThatFitsState()
       }
     }
   }
@@ -144,6 +144,8 @@ public final class GlossButtonNode : ASControlNode {
   private var blurrySurfaceNode: _GlossButtonBlurrySurfaceNode?
   
   private var needsLayoutLoadingIndicator: Bool = false
+
+  private let lock = NSLock()
   
   // MARK: - Initializers
   
@@ -186,7 +188,7 @@ public final class GlossButtonNode : ASControlNode {
     }
     
     descriptorStorage[state.rawValue] = descriptor
-    updateThatFitsState()
+    _synchronized_updateThatFitsState()
   }
 
   public override func didLoad() {
@@ -230,8 +232,11 @@ public final class GlossButtonNode : ASControlNode {
          
   }
   
-  private func updateThatFitsState() {
-    
+  private func _synchronized_updateThatFitsState() {
+
+    lock();
+    defer { unlock() }
+
     let findDescriptor: (ControlState) -> GlossButtonDescriptor? = { state in
       self.descriptorStorage.first {
         ControlState(rawValue: $0.key) == state
