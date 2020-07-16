@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GlossButtonNode"
-  spec.version      = "1.2.0"
+  spec.version      = "2.0.0"
   spec.summary      = "A composable Button UI component for Texture"
   spec.description  = <<-DESC
   Bringing a button UI-Component with composable flexibility that fits your product.
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "GlossButtonNode", "GlossButtonNode/**/*.swift"
 
   spec.swift_versions = ['5.2']
-  spec.dependency "Texture/Core", "~> 2.8"
+  spec.dependency "Texture/Core", "~> 3"
   spec.dependency "TextureSwiftSupport"
 
 end
