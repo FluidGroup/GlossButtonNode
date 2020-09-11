@@ -201,8 +201,6 @@ public final class _GlossButtonFilledSurfaceNode: ASDisplayNode, _GlossButtonSur
   
   public override func layout() {
     super.layout()
-
-    lock(); defer { unlock() }
     
     overlayLayer.frame = surfaceGradientLayer.bounds
     

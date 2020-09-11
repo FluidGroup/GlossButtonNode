@@ -144,8 +144,6 @@ public final class GlossButtonNode : ASControlNode {
   private var blurrySurfaceNode: _GlossButtonBlurrySurfaceNode?
   
   private var needsLayoutLoadingIndicator: Bool = false
-
-  private let lock = NSLock()
   
   // MARK: - Initializers
   
@@ -237,7 +235,6 @@ public final class GlossButtonNode : ASControlNode {
   private func _synchronized_updateThatFitsState() {
 
     lock();
-    defer { unlock() }
 
     let findDescriptor: (ControlState) -> GlossButtonDescriptor? = { state in
       self.descriptorStorage.first {
@@ -322,6 +319,8 @@ public final class GlossButtonNode : ASControlNode {
     
     setNeedsLayout()
     setNeedsDisplay()
+
+    unlock()
 
     let rootNode = supernode ?? self
     rootNode.layoutIfNeeded()

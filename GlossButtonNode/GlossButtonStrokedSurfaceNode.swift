@@ -127,8 +127,6 @@ public final class _GlossButtonStrokedSurfaceNode: ASDisplayNode, _GlossButtonSu
   
   public override func layout() {
     super.layout()
-
-    lock(); defer { unlock() }
     
     guard let strokeStyle = strokedStyle else { return }
     
