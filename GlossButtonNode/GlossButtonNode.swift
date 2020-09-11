@@ -53,6 +53,8 @@ public final class GlossButtonNode : ASControlNode {
   }
   
   private let bodyNode = _GlossButtonBodyNode()
+
+  private let lock = NSRecursiveLock()
   
   public var isProcessing: Bool {
     get {
@@ -233,6 +235,11 @@ public final class GlossButtonNode : ASControlNode {
   }
   
   private func _synchronized_updateThatFitsState() {
+
+    lock.lock()
+    defer {
+      lock.unlock()
+    }
 
     let findDescriptor: (ControlState) -> GlossButtonDescriptor? = { state in
       self.descriptorStorage.first {
