@@ -361,7 +361,6 @@ public final class _GlossButtonFilledSurfaceNode: ASDisplayNode, _GlossButtonSur
   }
   
   public func setStyle(_ filledStyle: Style) {
-    lock(); defer { unlock() }
     self.currentStyle = filledStyle
     setNeedsLayout()
   }

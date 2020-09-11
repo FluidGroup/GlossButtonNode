@@ -127,7 +127,7 @@ public final class _GlossButtonStrokedSurfaceNode: ASDisplayNode, _GlossButtonSu
   
   public override func layout() {
     super.layout()
-    
+
     guard let strokeStyle = strokedStyle else { return }
     
     func __cornerRadius(for layer: CALayer, from cornerRound: GlossButtonCornerRound?) -> CGFloat {
@@ -161,7 +161,6 @@ public final class _GlossButtonStrokedSurfaceNode: ASDisplayNode, _GlossButtonSu
   }
   
   public func setStyle(_ strokedStyle: GlossButtonStrokedStyle) {
-    lock(); defer { unlock() }
     self.strokedStyle = strokedStyle
     setNeedsLayout()
   }

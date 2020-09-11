@@ -234,8 +234,6 @@ public final class GlossButtonNode : ASControlNode {
   
   private func _synchronized_updateThatFitsState() {
 
-    lock();
-
     let findDescriptor: (ControlState) -> GlossButtonDescriptor? = { state in
       self.descriptorStorage.first {
         ControlState(rawValue: $0.key) == state
@@ -319,8 +317,6 @@ public final class GlossButtonNode : ASControlNode {
     
     setNeedsLayout()
     setNeedsDisplay()
-
-    unlock()
 
     let rootNode = supernode ?? self
     rootNode.layoutIfNeeded()
