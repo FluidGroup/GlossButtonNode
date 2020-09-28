@@ -153,7 +153,7 @@ extension ViewController {
         surfaceStyle: .stroke(
           .init(
             cornerRound: .radius(16),
-            strokeColor: #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1),
+            borderColor: #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1),
             borderWidth: 2,
             highlightAnimation: .basic
           )
@@ -173,7 +173,7 @@ extension ViewController {
         surfaceStyle: .stroke(
           .init(
             cornerRound: .circle,
-            strokeColor: #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1),
+            borderColor: #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1),
             borderWidth: 2,
             highlightAnimation: .basic
           )

@@ -72,10 +72,26 @@ extension GlossButtonHighlightAnimation where Components == _GlossButtonStrokedS
 public struct GlossButtonStrokedStyle {
   
   public var cornerRound: GlossButtonCornerRound?
-  public var strokeColor: UIColor
+  public var borderColor: UIColor
   public var borderWidth: CGFloat
+  public var backgroundColor: UIColor?
   public var highlightAnimation: GlossButtonHighlightAnimation<_GlossButtonStrokedSurfaceNode.Components>
   
+  public init(
+    cornerRound: GlossButtonCornerRound?,
+    borderColor: UIColor,
+    borderWidth: CGFloat,
+    backgroundColor: UIColor? = nil,
+    highlightAnimation: GlossButtonHighlightAnimation<_GlossButtonStrokedSurfaceNode.Components> = .basic
+  ) {
+    self.cornerRound = cornerRound
+    self.borderColor = borderColor
+    self.borderWidth = borderWidth
+    self.backgroundColor = backgroundColor
+    self.highlightAnimation = highlightAnimation
+  }
+  
+  @available(*, deprecated)
   public init(
     cornerRound: GlossButtonCornerRound?,
     strokeColor: UIColor,
@@ -84,7 +100,7 @@ public struct GlossButtonStrokedStyle {
   ) {
     
     self.cornerRound = cornerRound
-    self.strokeColor = strokeColor
+    self.borderColor = strokeColor
     self.borderWidth = borderWidth
     self.highlightAnimation = highlightAnimation
   }
@@ -147,11 +163,11 @@ public final class _GlossButtonStrokedSurfaceNode: ASDisplayNode, _GlossButtonSu
     
     borderShapeLayer.path = path.cgPath
     borderShapeLayer.lineWidth = strokeStyle.borderWidth
-    borderShapeLayer.strokeColor = strokeStyle.strokeColor.cgColor
+    borderShapeLayer.strokeColor = strokeStyle.borderColor.cgColor
     
     overlayShapeLayer.path = path.cgPath
     overlayShapeLayer.lineWidth = 0
-    overlayShapeLayer.fillColor = UIColor.clear.cgColor
+    overlayShapeLayer.fillColor = strokeStyle.backgroundColor?.cgColor
     overlayShapeLayer.strokeColor = UIColor.clear.cgColor
   }
   
