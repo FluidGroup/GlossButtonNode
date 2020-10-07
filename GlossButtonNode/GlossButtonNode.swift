@@ -195,6 +195,8 @@ public final class GlossButtonNode : ASControlNode {
     isUserInteractionEnabled = true
     indicatorNode.backgroundColor = .clear
     indicatorNode.alpha = 0
+    accessibilityIdentifier = "org.TextureCommunity.GlossButtonNode"
+    accessibilityTraits = [.button]
   }
 
 //  public override func animateLayoutTransition(_ context: ASContextTransitioning) {

@@ -5,8 +5,8 @@ target 'GlossButtonNode' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Texture/Core', '~> 3.0'
-  pod 'TextureSwiftSupport', '~> 2.0'
+  pod 'Texture/Core'
+  pod 'TextureSwiftSupport'
 
 end
 
