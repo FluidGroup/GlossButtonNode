@@ -148,7 +148,7 @@ public final class GlossButtonNode : ASControlNode {
   
   private var needsLayoutLoadingIndicator: Bool = false
 
-  private var haptics: HapticsDescriptor? = nil
+  private var hapticsDescriptor: HapticsDescriptor? = nil
   
   // MARK: - Initializers
   
@@ -188,6 +188,12 @@ public final class GlossButtonNode : ASControlNode {
       _synchronized_updateThatFitsState()
     }
 
+  }
+
+  public func setHaptics(
+    _ hapticsDescriptor: HapticsDescriptor?
+  ) {
+    self.hapticsDescriptor = hapticsDescriptor
   }
 
   public override func didLoad() {
@@ -341,11 +347,11 @@ public final class GlossButtonNode : ASControlNode {
   }
 
   @objc private func _onTouchDown() {
-    haptics?.send(event: .onTouchDownInside)
+    hapticsDescriptor?.send(event: .onTouchDownInside)
   }
 
   @objc private func _onTouchUpInside() {
-    haptics?.send(event: .onTouchUpInside)
+    hapticsDescriptor?.send(event: .onTouchUpInside)
     onTap()
   }
 
