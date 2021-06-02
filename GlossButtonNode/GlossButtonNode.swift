@@ -341,10 +341,11 @@ public final class GlossButtonNode : ASControlNode {
   }
 
   @objc private func _onTouchDown() {
-    haptics?.
+    haptics?.send(event: .onTouchDownInside)
   }
 
   @objc private func _onTouchUpInside() {
+    haptics?.send(event: .onTouchUpInside)
     onTap()
   }
 
