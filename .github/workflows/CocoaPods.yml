@@ -11,4 +11,4 @@ jobs:
           xcode-version: "12.4"
       - uses: actions/checkout@v2
       - name: Lint Cocoapods
-        run: pod lib lint GlossButtonNode.podspec
+        run: pod lib lint --allow-warnings GlossButtonNode.podspec
