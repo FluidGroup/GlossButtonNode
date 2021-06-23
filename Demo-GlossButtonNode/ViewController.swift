@@ -118,7 +118,7 @@ extension ViewController {
         bodyOpacity: 1,
         insets: .init(top: 16, left: 16, bottom: 16, right: 16)
       ),
-      
+
       GlossButtonDescriptor(
         title: "Confirm".styled {
           $0.font(.boldSystemFont(ofSize: 18))
@@ -143,7 +143,7 @@ extension ViewController {
         bodyOpacity: 1,
         insets: .init(top: 16, left: 16, bottom: 16, right: 16)
       ),
-      
+
       GlossButtonDescriptor(
         title: "Confirm".styled {
           $0.font(.boldSystemFont(ofSize: 18))
@@ -161,9 +161,7 @@ extension ViewController {
         bodyOpacity: 1,
         insets: .init(top: 16, left: 16, bottom: 16, right: 16)
       ),
-      
-   
-      
+
       GlossButtonDescriptor(
         title: "Confirm".styled {
           $0.font(.boldSystemFont(ofSize: 18))
@@ -181,7 +179,7 @@ extension ViewController {
         bodyOpacity: 1,
         insets: .init(top: 16, left: 16, bottom: 16, right: 16)
       ),
-      
+
       GlossButtonDescriptor(
         title: "Confirm".styled {
           $0.font(.boldSystemFont(ofSize: 18))
@@ -205,6 +203,10 @@ extension ViewController {
       let buttons: [GlossButtonNode] = Descriptors.items.map {
         let node = GlossButtonNode()
         node.setDescriptor($0, for: .normal)
+        node.isUserInteractionEnabled = false
+        node.onTap = {
+          print("tap")
+        }
         return node
       }
       
@@ -219,7 +221,7 @@ extension ViewController {
     }
     
     override func didLoad() {
-      super.didLoad()        
+      super.didLoad()
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
