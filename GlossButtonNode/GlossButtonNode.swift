@@ -156,6 +156,9 @@ public final class GlossButtonNode : ASControlNode {
     super.init()
     
     automaticallyManagesSubnodes = true
+
+    addTarget(self, action: #selector(_onTouchUpInside), forControlEvents: .touchUpInside)
+    addTarget(self, action: #selector(_onTouchDown), forControlEvents: .touchDown)
   }
   
   @available(*, unavailable)
@@ -199,14 +202,12 @@ public final class GlossButtonNode : ASControlNode {
   public override func didLoad() {
     super.didLoad()
     
-    isUserInteractionEnabled = true
+//    isUserInteractionEnabled = true
     indicatorNode.backgroundColor = .clear
     indicatorNode.alpha = 0
     accessibilityIdentifier = "org.TextureCommunity.GlossButtonNode"
     accessibilityTraits = [.button]
 
-    addTarget(self, action: #selector(_onTouchUpInside), forControlEvents: .touchUpInside)
-    addTarget(self, action: #selector(_onTouchDown), forControlEvents: .touchDown)
   }
 
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
