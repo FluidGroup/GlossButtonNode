@@ -17,5 +17,8 @@ target 'Demo-GlossButtonNode' do
   pod 'TextureSwiftSupport'
   pod 'TextureBridging'
   pod 'TypedTextAttributes'
+  pod 'StorybookKit'
+  pod 'StorybookUI'
+  pod 'StorybookKitTextureSupport'
   pod 'Reveal-SDK'
 end

@@ -82,7 +82,7 @@ public final class GlossButtonNode : ASControlNode {
             self.indicatorNode.transform = CATransform3DMakeScale(0.8, 0.8, 1)
             self.indicatorNode.transform = CATransform3DIdentity
             self.indicatorNode.alpha = 1
-            
+
           } else {
             
             self.bodyNode.alpha = 1
@@ -91,6 +91,7 @@ public final class GlossButtonNode : ASControlNode {
             
             self.indicatorNode.transform = CATransform3DMakeScale(0.8, 0.8, 1)
             self.indicatorNode.alpha = 0
+
           }
         }, completion: { _ in
         })
@@ -112,7 +113,6 @@ public final class GlossButtonNode : ASControlNode {
   public override var isEnabled: Bool {
     didSet {
       if oldValue != isEnabled {
-        isUserInteractionEnabled = isEnabled
         _synchronized_updateThatFitsState()
       }
     }
@@ -199,7 +199,7 @@ public final class GlossButtonNode : ASControlNode {
 
   public override func didLoad() {
     super.didLoad()
-    
+
     indicatorNode.backgroundColor = .clear
     indicatorNode.alpha = 0
     accessibilityIdentifier = "org.TextureCommunity.GlossButtonNode"
@@ -345,18 +345,19 @@ public final class GlossButtonNode : ASControlNode {
   }
 
   @objc private func _onTouchDown() {
+
     guard isProcessing == false else { return }
     hapticsDescriptor?.send(event: .onTouchDownInside)
   }
 
   @objc private func _onTouchUpInside() {
+
     guard isProcessing == false else { return }
     hapticsDescriptor?.send(event: .onTouchUpInside)
     onTap()
   }
 
 }
-
 
 protocol _GlossButtonSurfaceNodeType: ASDisplayNode {
       
