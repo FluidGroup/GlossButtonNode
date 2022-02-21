@@ -201,6 +201,9 @@ public final class GlossButtonNode : ASControlNode {
     super.didLoad()
 
     indicatorNode.backgroundColor = .clear
+    /** 
+      [Workaround] to prevent setting alpha 0, if `isProcessing` has been set before `didLoad`.
+    */
     if isProcessing == false {
       indicatorNode.alpha = 0
     }
