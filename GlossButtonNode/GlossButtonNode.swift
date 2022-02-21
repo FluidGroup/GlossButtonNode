@@ -201,7 +201,12 @@ public final class GlossButtonNode : ASControlNode {
     super.didLoad()
 
     indicatorNode.backgroundColor = .clear
-    indicatorNode.alpha = 0
+    /** 
+      [Workaround] to prevent setting alpha 0, if `isProcessing` has been set before `didLoad`.
+    */
+    if isProcessing == false {
+      indicatorNode.alpha = 0
+    }
     accessibilityIdentifier = "org.TextureCommunity.GlossButtonNode"
     accessibilityTraits = [.button]
 
