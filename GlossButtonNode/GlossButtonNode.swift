@@ -201,7 +201,9 @@ public final class GlossButtonNode : ASControlNode {
     super.didLoad()
 
     indicatorNode.backgroundColor = .clear
-    indicatorNode.alpha = 0
+    if isProcessing == false {
+      indicatorNode.alpha = 0
+    }
     accessibilityIdentifier = "org.TextureCommunity.GlossButtonNode"
     accessibilityTraits = [.button]
 
