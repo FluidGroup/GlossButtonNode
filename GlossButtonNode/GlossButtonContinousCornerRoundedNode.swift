@@ -29,6 +29,8 @@ final class GlossButtonContinousCornerRoundedNode: ASDisplayNode {
 
   private let passBasedMaskNode: ShapeRenderingNode
   private let layerBasedMaskNode: ASDisplayNode
+  
+  private var __radius: CGFloat?
 
   override init() {
 
@@ -65,6 +67,7 @@ final class GlossButtonContinousCornerRoundedNode: ASDisplayNode {
       self.passBasedMaskNode.alpha = 0
       self.layerBasedMaskNode.backgroundColor = .black
       self.layerBasedMaskNode.layer.cornerRadius = radius
+      self.__radius = radius
       self._updateCornerCurve()
     }
   }
@@ -72,7 +75,9 @@ final class GlossButtonContinousCornerRoundedNode: ASDisplayNode {
   private func _updateCornerCurve() {
     if #available(*, iOS 13) {
 
-      if bounds.width == bounds.height {
+      if bounds.width == bounds.height,
+         let __radius = __radius,
+         __radius == bounds.width / 2 {
         layerBasedMaskNode.layer.cornerCurve = .circular
       } else {
         layerBasedMaskNode.layer.cornerCurve = .continuous
