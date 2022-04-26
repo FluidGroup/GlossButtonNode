@@ -99,6 +99,10 @@ public final class _GlossButtonBodyNode: ASDisplayNode {
     setNeedsLayout()
   }
   
+  public func setImageTintColor(_ imageTintColor: UIColor?) {
+    self.imageNode.tintColor = imageTintColor
+  }
+  
   public func setTitle(_ title: NSAttributedString?) {
     self.titleNode.attributedText = title
     setNeedsLayout()
