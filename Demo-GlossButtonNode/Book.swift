@@ -43,6 +43,39 @@ let book = Book(title: "MyBook") {
       )
       return node
     }
+    
+    BookNodePreview {
+      let node = GlossButtonNode()
+      node.setDescriptor(
+        GlossButtonDescriptor(
+          title: "Confirm".styled {
+            $0.font(.boldSystemFont(ofSize: 18))
+              .foregroundColor(.white)
+          },
+          image: icon.withRenderingMode(.alwaysTemplate),
+          imageTintColor: .blue,
+          bodyStyle: .init(layout: .horizontal(imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 2))),
+          surfaceStyle: .fill(
+            .init(
+              cornerRound: .radius(all: 16),
+              backgroundColor: .gradient(
+                colorAndLocations: [
+                  (0, #colorLiteral(red: 0.4375238121, green: 0.04877754301, blue: 0.4053111374, alpha: 1)),
+                  (1, #colorLiteral(red: 0.9841937423, green: 0.3711297512, blue: 0.2100374103, alpha: 1)),
+                ],
+                startPoint: .init(x: 0, y: 0),
+                endPoint: .init(x: 1, y: 1)
+              ),
+              dropShadow: .none
+            )
+          ),
+          bodyOpacity: 1,
+          insets: .init(top: 16, left: 16, bottom: 16, right: 16)
+        ),
+        for: .normal
+      )
+      return node
+    }
 
     BookNodePreview {
       let node = GlossButtonNode()
