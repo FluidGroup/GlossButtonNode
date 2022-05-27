@@ -24,9 +24,13 @@ import Foundation
 import UIKit
 import CoreGraphics
 
+/**
+ Configurations for creating ``GlossButtonNode``
+ */
 public struct GlossButtonDescriptor {
     
   public var image: UIImage?
+  public var imageTintColor: UIColor?
   public var title: NSAttributedString?
   
   public var boundPadding: UIEdgeInsets = .zero
@@ -43,6 +47,7 @@ public struct GlossButtonDescriptor {
   public init(
     title: NSAttributedString? = nil,
     image: UIImage? = nil,
+    imageTintColor: UIColor? = nil,
     truncateStyle: GlossButtonTruncateStyle = .init(),
     bodyStyle: GlossButtonBodyStyle,
     surfaceStyle: GlossButtonSurfaceStyle,
@@ -53,6 +58,7 @@ public struct GlossButtonDescriptor {
     
     self.title = title
     self.image = image
+    self.imageTintColor = imageTintColor
     self.bodyOpacity = bodyOpacity
     if let insets = insets {
       self.insets = insets
@@ -141,12 +147,12 @@ public enum GlossButtonSurfaceStyle {
   
   /// workaround
   public static var bodyOnly: GlossButtonSurfaceStyle {
-    return .stroke(.init(cornerRound: nil, strokeColor: .clear, borderWidth: 0))
+    return .stroke(.init(cornerRound: nil, borderColor: .clear, borderWidth: 0))
   }
   
   /// workaround
   public static var translucentHighlight: GlossButtonSurfaceStyle {
-    return .stroke(.init(cornerRound: nil, strokeColor: .clear, borderWidth: 0))
+    return .stroke(.init(cornerRound: nil, borderColor: .clear, borderWidth: 0))
   }
   
   @available(*, deprecated)

@@ -327,6 +327,7 @@ public final class GlossButtonNode : ASControlNode {
     }
     
     bodyNode.setImage(d.image)
+    bodyNode.setImageTintColor(d.imageTintColor)
     bodyNode.setTitle(d.title)
     bodyNode.setTruncateStyle(d.truncateStyle)
     bodyNode.setBodyStyle(d.bodyStyle)
