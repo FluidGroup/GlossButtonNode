@@ -11,7 +11,6 @@
 		4B2276172454A8F900F39A16 /* VerticalScrollWrapperNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2276162454A8F900F39A16 /* VerticalScrollWrapperNode.swift */; };
 		4B22761C2454AC5700F39A16 /* GlossButtonNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */; };
 		4B22761D2454AC5700F39A16 /* GlossButtonNode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B6F6F4B2452A1FA00B6CC3A /* GlossButtonNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B6F6F5B2452A32C00B6CC3A /* GlossButtonStrokedSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F512452A32B00B6CC3A /* GlossButtonStrokedSurfaceNode.swift */; };
 		4B6F6F5C2452A32C00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F522452A32B00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift */; };
 		4B6F6F5D2452A32C00B6CC3A /* GlossButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F6F532452A32C00B6CC3A /* GlossButtonNode.swift */; };
@@ -58,8 +57,6 @@
 /* Begin PBXFileReference section */
 		4B2276162454A8F900F39A16 /* VerticalScrollWrapperNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollWrapperNode.swift; sourceTree = "<group>"; };
 		4B6F6F462452A1FA00B6CC3A /* GlossButtonNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GlossButtonNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlossButtonNode.h; sourceTree = "<group>"; };
-		4B6F6F4A2452A1FA00B6CC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B6F6F512452A32B00B6CC3A /* GlossButtonStrokedSurfaceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlossButtonStrokedSurfaceNode.swift; sourceTree = "<group>"; };
 		4B6F6F522452A32B00B6CC3A /* _GlossButtonHighlightSurfaceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GlossButtonHighlightSurfaceNode.swift; sourceTree = "<group>"; };
 		4B6F6F532452A32C00B6CC3A /* GlossButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlossButtonNode.swift; sourceTree = "<group>"; };
@@ -140,8 +137,6 @@
 				4B6F6F582452A32C00B6CC3A /* GlossButtonHighlightAnimation.swift */,
 				4B6F6F532452A32C00B6CC3A /* GlossButtonNode.swift */,
 				4B6F6F512452A32B00B6CC3A /* GlossButtonStrokedSurfaceNode.swift */,
-				4B6F6F492452A1FA00B6CC3A /* GlossButtonNode.h */,
-				4B6F6F4A2452A1FA00B6CC3A /* Info.plist */,
 			);
 			path = GlossButtonNode;
 			sourceTree = "<group>";
@@ -188,7 +183,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B6F6F4B2452A1FA00B6CC3A /* GlossButtonNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +544,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GlossButtonNode/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -576,7 +570,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GlossButtonNode/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
