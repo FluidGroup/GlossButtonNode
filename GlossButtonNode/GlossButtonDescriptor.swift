@@ -33,14 +33,6 @@ public struct GlossButtonDescriptor {
     public let color: UIColor?
     public let style: UIActivityIndicatorView.Style
 
-    /// Provide static types for easy migration, covering most used styles
-    ///
-    @available(iOS 13.0, *)
-    public static let gray: ActivityIndicatorStyle = .init(color: .gray, style: .medium)
-    @available(iOS 13.0, *)
-    public static let white: ActivityIndicatorStyle = .init(color: .white, style: .medium)
-
-
     public init(color: UIColor? = nil, style: UIActivityIndicatorView.Style = .white) {
       self.color = color
       self.style = style
