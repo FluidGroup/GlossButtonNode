@@ -70,6 +70,7 @@ public final class GlossButtonNode : ASControlNode {
         self._isProcessing = newValue
         
         self.indicator.style = self.currentDescriptor?.indicatorViewStyle ?? .white
+        self.indicator.color = self.currentDescriptor?.indicatorViewColor ?? .white
         
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
           

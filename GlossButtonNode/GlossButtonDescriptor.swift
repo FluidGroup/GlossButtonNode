@@ -42,8 +42,9 @@ public struct GlossButtonDescriptor {
   public var surfaceStyle: GlossButtonSurfaceStyle
 
   public var indicatorViewStyle: UIActivityIndicatorView.Style
+  public var indicatorViewColor: UIColor
   public var bodyOpacity: CGFloat
-  
+
   public init(
     title: NSAttributedString? = nil,
     image: UIImage? = nil,
@@ -53,7 +54,8 @@ public struct GlossButtonDescriptor {
     surfaceStyle: GlossButtonSurfaceStyle,
     bodyOpacity: CGFloat = 1,
     insets: UIEdgeInsets? = nil,
-    indicatorViewStyle: UIActivityIndicatorView.Style = .white
+    indicatorViewStyle: UIActivityIndicatorView.Style = .white,
+    indicatorViewColor: UIColor = .white
   ) {
     
     self.title = title
@@ -67,6 +69,7 @@ public struct GlossButtonDescriptor {
     self.surfaceStyle = surfaceStyle
     self.bodyStyle = bodyStyle
     self.indicatorViewStyle = indicatorViewStyle
+    self.indicatorViewColor = indicatorViewColor
   }
   
 }
