@@ -28,6 +28,24 @@ import CoreGraphics
  Configurations for creating ``GlossButtonNode``
  */
 public struct GlossButtonDescriptor {
+
+  public struct ActivityIndicatorStyle {
+    public let color: UIColor?
+    public let style: UIActivityIndicatorView.Style
+
+    /// Provide static types for easy migration, covering most used styles
+    ///
+    @available(iOS 13.0, *)
+    public static let gray: ActivityIndicatorStyle = .init(color: .gray, style: .medium)
+    @available(iOS 13.0, *)
+    public static let white: ActivityIndicatorStyle = .init(color: .white, style: .medium)
+
+
+    public init(color: UIColor? = nil, style: UIActivityIndicatorView.Style = .white) {
+      self.color = color
+      self.style = style
+    }
+  }
     
   public var image: UIImage?
   public var imageTintColor: UIColor?
@@ -41,8 +59,7 @@ public struct GlossButtonDescriptor {
   public var bodyStyle: GlossButtonBodyStyle
   public var surfaceStyle: GlossButtonSurfaceStyle
 
-  public var indicatorViewStyle: UIActivityIndicatorView.Style
-  public var indicatorViewColor: UIColor
+  public var activityIndicatorStyle: ActivityIndicatorStyle
   public var bodyOpacity: CGFloat
 
   public init(
@@ -54,8 +71,7 @@ public struct GlossButtonDescriptor {
     surfaceStyle: GlossButtonSurfaceStyle,
     bodyOpacity: CGFloat = 1,
     insets: UIEdgeInsets? = nil,
-    indicatorViewStyle: UIActivityIndicatorView.Style = .white,
-    indicatorViewColor: UIColor = .white
+    activityIndicatorStyle: ActivityIndicatorStyle = .init()
   ) {
     
     self.title = title
@@ -68,8 +84,7 @@ public struct GlossButtonDescriptor {
     self.truncateStyle = truncateStyle
     self.surfaceStyle = surfaceStyle
     self.bodyStyle = bodyStyle
-    self.indicatorViewStyle = indicatorViewStyle
-    self.indicatorViewColor = indicatorViewColor
+    self.activityIndicatorStyle = activityIndicatorStyle
   }
   
 }
