@@ -30,10 +30,10 @@ import CoreGraphics
 public struct GlossButtonDescriptor {
 
   public struct ActivityIndicatorStyle {
-    public let color: UIColor?
+    public let color: UIColor
     public let style: UIActivityIndicatorView.Style
 
-    public init(color: UIColor? = nil, style: UIActivityIndicatorView.Style = .white) {
+    public init(color: UIColor = .white, style: UIActivityIndicatorView.Style = .medium) {
       self.color = color
       self.style = style
     }
