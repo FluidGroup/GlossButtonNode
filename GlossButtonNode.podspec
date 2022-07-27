@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.homepage = "https://github.com/TextureCommunity/GlossButtonNode"
   spec.license = "MIT"
   spec.author = "muukii", "yukkobay"
-  spec.platform = :ios, "10.0"
+  spec.platform = :ios, "13.0"
   spec.source = { :git => "https://github.com/TextureCommunity/GlossButtonNode.git", :tag => "#{spec.version}" }
   spec.source_files = "GlossButtonNode", "GlossButtonNode/**/*.swift"
 

@@ -28,6 +28,16 @@ import CoreGraphics
  Configurations for creating ``GlossButtonNode``
  */
 public struct GlossButtonDescriptor {
+
+  public struct ActivityIndicatorStyle {
+    public let color: UIColor
+    public let style: UIActivityIndicatorView.Style
+
+    public init(color: UIColor = .white, style: UIActivityIndicatorView.Style = .medium) {
+      self.color = color
+      self.style = style
+    }
+  }
     
   public var image: UIImage?
   public var imageTintColor: UIColor?
@@ -41,9 +51,9 @@ public struct GlossButtonDescriptor {
   public var bodyStyle: GlossButtonBodyStyle
   public var surfaceStyle: GlossButtonSurfaceStyle
 
-  public var indicatorViewStyle: UIActivityIndicatorView.Style
+  public var activityIndicatorStyle: ActivityIndicatorStyle
   public var bodyOpacity: CGFloat
-  
+
   public init(
     title: NSAttributedString? = nil,
     image: UIImage? = nil,
@@ -53,7 +63,7 @@ public struct GlossButtonDescriptor {
     surfaceStyle: GlossButtonSurfaceStyle,
     bodyOpacity: CGFloat = 1,
     insets: UIEdgeInsets? = nil,
-    indicatorViewStyle: UIActivityIndicatorView.Style = .white
+    activityIndicatorStyle: ActivityIndicatorStyle = .init()
   ) {
     
     self.title = title
@@ -66,7 +76,7 @@ public struct GlossButtonDescriptor {
     self.truncateStyle = truncateStyle
     self.surfaceStyle = surfaceStyle
     self.bodyStyle = bodyStyle
-    self.indicatorViewStyle = indicatorViewStyle
+    self.activityIndicatorStyle = activityIndicatorStyle
   }
   
 }

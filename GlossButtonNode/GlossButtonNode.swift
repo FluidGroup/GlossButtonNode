@@ -68,8 +68,11 @@ public final class GlossButtonNode : ASControlNode {
         self.prepareLoadingIndicatorIfNeeded()
       
         self._isProcessing = newValue
-        
-        self.indicator.style = self.currentDescriptor?.indicatorViewStyle ?? .white
+
+        let indicatorDesctiptor: GlossButtonDescriptor.ActivityIndicatorStyle = self.currentDescriptor?.activityIndicatorStyle ?? .init()
+
+        self.indicator.style = indicatorDesctiptor.style
+        self.indicator.color = indicatorDesctiptor.color
         
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
           
