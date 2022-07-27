@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
   name: "GlossButtonNode",
   platforms: [
-    .iOS(.v11),
+    .iOS(.v13),
   ],
   products: [
     .library(name: "GlossButtonNode", targets: ["GlossButtonNode"]),
@@ -15,7 +15,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "GlossButtonNode", 
+      name: "GlossButtonNode",
       dependencies: [
         .product(name: "AsyncDisplayKit", package: "Texture"),
         .product(name: "TextureSwiftSupport", package: "TextureSwiftSupport")
