@@ -47,7 +47,7 @@ public final class GlossButtonNode : ASControlNode {
     
   // MARK: - Properties
   
-  public var onTap: () -> Void = { }
+  public var onTap: @MainActor () -> Void = { }
   
   public override var supportsLayerBacking: Bool {
     return false
@@ -359,7 +359,7 @@ public final class GlossButtonNode : ASControlNode {
     hapticsDescriptor?.send(event: .onTouchDownInside)
   }
 
-  @objc private func _onTouchUpInside() {
+  @objc @MainActor private func _onTouchUpInside() {
 
     guard isProcessing == false else { return }
     hapticsDescriptor?.send(event: .onTouchUpInside)
