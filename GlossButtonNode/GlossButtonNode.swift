@@ -30,68 +30,68 @@ import TextureSwiftSupport
 /// - TODO:
 ///   - Improve shape of structure that describing style.
 public final class GlossButtonNode : ASControlNode {
-    
+
   public struct ControlState: OptionSet {
     public init(rawValue: Int) {
       self.rawValue = rawValue
     }
-    
+
     public var rawValue: Int
-    
+
     public typealias RawValue = Int
-    
+
     public static let normal = ControlState(rawValue: 1 << 0)
     public static let disabled = ControlState(rawValue: 1 << 1)
     public static let selected = ControlState(rawValue: 1 << 2)
   }
-    
+
   // MARK: - Properties
-  
+
   public var onTap: @MainActor () -> Void = { }
-  
+
   public override var supportsLayerBacking: Bool {
     return false
   }
-  
+
   private let bodyNode = _GlossButtonBodyNode()
 
   private let lock = NSRecursiveLock()
-  
+
   public var isProcessing: Bool {
     get {
       return _isProcessing
     }
     set {
-      
+
       ASPerformBlockOnMainThread {
-        
+
         self.prepareLoadingIndicatorIfNeeded()
-      
+
         self._isProcessing = newValue
 
         let indicatorDesctiptor: GlossButtonDescriptor.ActivityIndicatorStyle = self.currentDescriptor?.activityIndicatorStyle ?? .init()
 
         self.indicator.style = indicatorDesctiptor.style
         self.indicator.color = indicatorDesctiptor.color
-        
+
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-          
+
           if newValue {
-            
+
             self.bodyNode.alpha = 0
             self.bodyNode.transform = CATransform3DMakeScale(0.9, 0.9, 1)
             self.indicator.startAnimating()
-            
+
             self.indicatorNode.transform = CATransform3DMakeScale(0.8, 0.8, 1)
             self.indicatorNode.transform = CATransform3DIdentity
             self.indicatorNode.alpha = 1
 
           } else {
-            
+
             self.bodyNode.alpha = 1
             self.bodyNode.transform = CATransform3DIdentity
             self.indicator.stopAnimating()
-            
+
             self.indicatorNode.transform = CATransform3DMakeScale(0.8, 0.8, 1)
             self.indicatorNode.alpha = 0
 
@@ -99,12 +99,12 @@ public final class GlossButtonNode : ASControlNode {
         }, completion: { _ in
         })
       }
-      
+
     }
   }
-  
+
   private var _isProcessing: Bool = false
-  
+
   public override var isSelected: Bool {
     didSet {
       if oldValue != isSelected {
@@ -112,7 +112,7 @@ public final class GlossButtonNode : ASControlNode {
       }
     }
   }
-  
+
   public override var isEnabled: Bool {
     didSet {
       if oldValue != isEnabled {
@@ -120,7 +120,7 @@ public final class GlossButtonNode : ASControlNode {
       }
     }
   }
-  
+
   public override var isHighlighted: Bool {
     didSet {
       guard oldValue != isHighlighted else { return }
@@ -130,50 +130,50 @@ public final class GlossButtonNode : ASControlNode {
       highlightSurfaceNode?.isHighlighted = isHighlighted
     }
   }
-  
+
   private lazy var indicatorNode: ASDisplayNode = ASDisplayNode { () -> UIView in
     return UIActivityIndicatorView(style: .white)
   }
-  
+
   private var indicator: UIActivityIndicatorView {
     return indicatorNode.view as! UIActivityIndicatorView
   }
-    
+
   private var descriptorStorage: [ControlState.RawValue : GlossButtonDescriptor] = [:]
   private var currentDescriptor: GlossButtonDescriptor?
-  
+
   private var filledSurfaceNode: _GlossButtonFilledSurfaceNode?
   private var strokedSurfaceNode: _GlossButtonStrokedSurfaceNode?
   private var highlightSurfaceNode: _GlossButtonHighlightSurfaceNode?
   private var blurrySurfaceNode: _GlossButtonBlurrySurfaceNode?
-  
+
   private var needsLayoutLoadingIndicator: Bool = false
 
   private var hapticsDescriptor: HapticsDescriptor? = nil
-  
+
   // MARK: - Initializers
-  
+
   public override init() {
     super.init()
-    
+
     automaticallyManagesSubnodes = true
 
     addTarget(self, action: #selector(_onTouchUpInside), forControlEvents: .touchUpInside)
     addTarget(self, action: #selector(_onTouchDown), forControlEvents: .touchDown)
   }
-  
+
   @available(*, unavailable)
   public init(layerBlock: @escaping ASDisplayNodeLayerBlock, didLoad: ASDisplayNodeLayerBlock? = nil) {
     fatalError()
   }
-  
+
   @available(*, unavailable)
   public init(viewBlock: @escaping ASDisplayNodeViewBlock, didLoad: ASDisplayNodeLayerBlock? = nil) {
     fatalError()
   }
-      
+
   // MARK: - Functions
-  
+
   public func setDescriptor(
     _ descriptor: GlossButtonDescriptor,
     for state: ControlState,
@@ -204,7 +204,7 @@ public final class GlossButtonNode : ASControlNode {
     super.didLoad()
 
     indicatorNode.backgroundColor = .clear
-    /** 
+    /**
       [Workaround] to prevent setting alpha 0, if `isProcessing` has been set before `didLoad`.
     */
     if isProcessing == false {
@@ -216,16 +216,16 @@ public final class GlossButtonNode : ASControlNode {
   }
 
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    
+
     guard let targetDescriptor = currentDescriptor else {
       return ASWrapperLayoutSpec(layoutElements: [])
     }
-    
+
     var indicator: ASDisplayNode?
     if needsLayoutLoadingIndicator {
       indicator = indicatorNode
     }
-            
+
     return ASInsetLayoutSpec(
       insets: targetDescriptor.boundPadding,
       child: ASBackgroundLayoutSpec(
@@ -245,9 +245,9 @@ public final class GlossButtonNode : ASControlNode {
         )
       )
     )
-         
+
   }
-  
+
   private func _synchronized_updateThatFitsState() {
 
     lock.lock()
@@ -260,9 +260,9 @@ public final class GlossButtonNode : ASControlNode {
         ControlState(rawValue: $0.key) == state
         }?.value
     }
-    
+
     let normalDescriptor = findDescriptor([.normal])
-    
+
     let targetDescriptor: GlossButtonDescriptor? = {
       switch (isSelected, isEnabled) {
       case (true, true):
@@ -279,64 +279,64 @@ public final class GlossButtonNode : ASControlNode {
         return normalDescriptor
       }
     }()
-    
+
     guard let d = targetDescriptor else {
       return
     }
-    
+
     currentDescriptor = d
-    
+
     switch d.surfaceStyle {
     case .fill(let style):
-      
+
       let node = self.filledSurfaceNode ?? .init()
       node.setStyle(style)
-      
+
       self.filledSurfaceNode = node
       self.strokedSurfaceNode = nil
       self.highlightSurfaceNode = nil
       self.blurrySurfaceNode = nil
-      
+
     case .stroke(let style):
-      
+
       let node = self.strokedSurfaceNode ?? .init()
       node.setStyle(style)
-      
+
       self.filledSurfaceNode = nil
       self.strokedSurfaceNode = node
       self.highlightSurfaceNode = nil
       self.blurrySurfaceNode = nil
-      
+
     case .highlight(let style):
-      
+
       let node = self.highlightSurfaceNode ?? .init()
       node.setStyle(style)
-      
+
       self.filledSurfaceNode = nil
       self.strokedSurfaceNode = nil
       self.highlightSurfaceNode = node
       self.blurrySurfaceNode = nil
-      
+
     case .blur(let style):
-      
+
       let node = self.blurrySurfaceNode ?? .init()
       node.setStyle(style)
-      
+
       self.filledSurfaceNode = nil
       self.strokedSurfaceNode = nil
       self.highlightSurfaceNode = nil
       self.blurrySurfaceNode = node
-      
+
     }
-    
+
     bodyNode.setImage(d.image)
     bodyNode.setImageTintColor(d.imageTintColor)
     bodyNode.setTitle(d.title)
     bodyNode.setTruncateStyle(d.truncateStyle)
     bodyNode.setBodyStyle(d.bodyStyle)
-    
+
     alpha = d.bodyOpacity
-    
+
     setNeedsLayout()
     setNeedsDisplay()
 
@@ -344,16 +344,16 @@ public final class GlossButtonNode : ASControlNode {
     rootNode.layoutIfNeeded()
 
   }
-  
+
   private func prepareLoadingIndicatorIfNeeded() {
     guard needsLayoutLoadingIndicator == false else { return }
-    
+
     needsLayoutLoadingIndicator = true
     setNeedsLayout()
     layoutIfNeeded()
   }
 
-  @objc private func _onTouchDown() {
+  @objc @MainActor private func _onTouchDown() {
 
     guard isProcessing == false else { return }
     hapticsDescriptor?.send(event: .onTouchDownInside)
@@ -369,6 +369,6 @@ public final class GlossButtonNode : ASControlNode {
 }
 
 protocol _GlossButtonSurfaceNodeType: ASDisplayNode {
-      
+
   var isHighlighted: Bool { get set }
 }
