@@ -27,9 +27,9 @@ import CoreGraphics
 /**
  Configurations for creating ``GlossButtonNode``
  */
-public struct GlossButtonDescriptor {
+public struct GlossButtonDescriptor: Sendable {
 
-  public struct ActivityIndicatorStyle {
+    public struct ActivityIndicatorStyle: Sendable {
     public let color: UIColor
     public let style: UIActivityIndicatorView.Style
 
